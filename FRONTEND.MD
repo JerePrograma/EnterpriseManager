@@ -1,4 +1,3 @@
-```markdown
 # Vistas y Componentes Frontend
 
 Este documento define las pantallas y componentes básicos de la aplicación web.
@@ -82,4 +81,3 @@ Este documento define las pantallas y componentes básicos de la aplicación web
 - **Componentes**:  
   - `WarehousesList` (tabla con `name`, `location`, `capacity`)  
   - `WarehouseForm` (crear/editar)
-````

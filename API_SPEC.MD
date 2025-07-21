@@ -1,4 +1,3 @@
-````markdown
 # API Reference
 
 Este documento unifica todos los endpoints de la API REST, con contratos JSON normalizados.
@@ -724,5 +723,3 @@ Actualizar depósito.
 Eliminar depósito.
 
 **Response** (204 No Content)
-
-````
