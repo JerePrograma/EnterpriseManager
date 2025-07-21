@@ -1,4 +1,3 @@
-```markdown
 # Guía de Despliegue
 
 Este documento explica cómo desplegar la aplicación en distintos entornos.
@@ -90,5 +89,3 @@ Este documento explica cómo desplegar la aplicación en distintos entornos.
    ```bash
    certbot --nginx -d jereprograma.com/api
    ```
-
-````
