@@ -35,11 +35,11 @@
 ### 3.2. Catálogo de Productos
 
 - **Product**  
-  - Listar:   `GET    /api/products`  
-  - Detalle:  `GET    /api/products/{id}`  
-  - Crear:    `POST   /api/products`  
+  - Listar:     `GET    /api/products`  
+  - Detalle:    `GET    /api/products/{id}`  
+  - Crear:      `POST   /api/products`  
   - Actualizar: `PUT    /api/products/{id}`  
-  - Eliminar: `DELETE /api/products/{id}`  
+  - Eliminar:   `DELETE /api/products/{id}`  
 
 - **Category** (opcional)  
   - CRUD básico si da tiempo  
@@ -101,94 +101,4 @@
 ┌───────────────────┐
 │     Entity        │
 └───────────────────┘
-```
-
-* **Entity**: anotada con `@Entity`, corresponde a la tabla.  
-* **Repository**: extiende `JpaRepository<Entity, Long>`.  
-* **Service**: lógica de negocio, transacciones.  
-* **Controller**: expone `@RestController` + rutas.  
-* **DTO**: record o clase con campos + validaciones (`@NotNull`, etc.).  
-* **Mapper**: uso de MapStruct o métodos estáticos para conversión Entity ⇄ DTO.
-
----
-
-## 6. Protocolo DTO y ejemplos de API
-
-### 6.1. Product
-
-```java
-// DTOs
-public record ProductRequestDTO(
-    @NotBlank String name,
-    @NotNull BigDecimal price,
-    String description,
-    Long categoryId
-) {}
-
-public record ProductResponseDTO(
-    Long id,
-    String name,
-    BigDecimal price,
-    String description,
-    CategorySummaryDTO category
-) {}
-
-// Controller
-@RestController
-@RequestMapping("/api/products")
-public class ProductController {
-
-    @PostMapping
-    public ProductResponseDTO create(@RequestBody @Valid ProductRequestDTO dto) { … }
-
-    @GetMapping
-    public List<ProductResponseDTO> list() { … }
-
-    @GetMapping("/{id}")
-    public ProductResponseDTO get(@PathVariable Long id) { … }
-
-    @PutMapping("/{id}")
-    public ProductResponseDTO update(
-        @PathVariable Long id,
-        @RequestBody @Valid ProductRequestDTO dto
-    ) { … }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) { … }
-}
-```
-
-### 6.2. Order
-
-```java
-// DTOs para Order
-public record OrderItemDTO(
-    @NotNull Long productId,
-    @Min(1) Integer quantity
-) {}
-
-public record OrderRequestDTO(
-    @NotNull Long customerId,
-    @NotEmpty List<@Valid OrderItemDTO> items
-) {}
-
-public record OrderResponseDTO(
-    Long id,
-    CustomerSummaryDTO customer,
-    List<OrderItemDetailDTO> items,
-    BigDecimal total,
-    LocalDateTime createdAt
-) {}
-```
-
----
-
-## 7. Cronograma de 3 días
-
-| Día   | Tareas clave                                                                               |
-| ----- | ------------------------------------------------------------------------------------------ |
-| **1** | - Configuración inicial (Spring Boot, seguridad JWT)<br>- Entidades User/Role + CRUD User |
-| **2** | - Módulo Product + Category<br>- Módulo Customer<br>- Pruebas con Postman                  |
-| **3** | - Módulo Order + OrderItem<br>- Inventario básico<br>- Despliegue (jar o Docker)          |
 ```
