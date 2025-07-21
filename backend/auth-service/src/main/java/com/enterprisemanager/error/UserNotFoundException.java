@@ -1,0 +1,7 @@
+package com.enterprisemanager.error;
+
+public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException(String identifier) {
+        super("Usuario no encontrado: " + identifier);
+    }
+}
