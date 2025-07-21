@@ -16,7 +16,7 @@ public class ConfigurationCors implements WebMvcConfigurer {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // Usá origin patterns en vez de allowed origins cuando allowCredentials=true
+        // Usa origin patterns en vez de allowed origins cuando allowCredentials=true
         config.setAllowedOriginPatterns(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         config.setAllowedHeaders(List.of("*"));

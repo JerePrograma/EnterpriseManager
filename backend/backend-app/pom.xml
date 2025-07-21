@@ -6,6 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 1) Parent aggregator -->
     <parent>
         <groupId>com.enterprisemanager</groupId>
         <artifactId>backend</artifactId>
@@ -14,9 +15,11 @@
 
     <artifactId>backend-app</artifactId>
     <packaging>jar</packaging>
+    <name>backend-app</name>
+    <description>Launcher del monolito modular</description>
 
     <dependencies>
-        <!-- Starters Spring Boot (versiones del BOM importado) -->
+        <!-- Spring Boot Starters (versiones del BOM) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -30,7 +33,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- JWT y MySQL (versiones heredadas del BOM/dependencyManagement) -->
+        <!-- JWT y MySQL (versiones gestionadas en el padre) -->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
@@ -40,7 +43,7 @@
             <artifactId>mysql-connector-j</artifactId>
         </dependency>
 
-        <!-- Tus módulos internos (versiones heredadas de dependencyManagement) -->
+        <!-- Modulos internos -->
         <dependency>
             <groupId>com.enterprisemanager</groupId>
             <artifactId>user-service</artifactId>
@@ -49,15 +52,36 @@
             <groupId>com.enterprisemanager</groupId>
             <artifactId>product-service</artifactId>
         </dependency>
-        <!-- …category-, customer-, order-, inventory-, warehouse-service -->
+        <dependency>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>category-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>customer-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>order-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>inventory-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>warehouse-service</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Empaqueta y ejecuta el jar con todo el monolito -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
 </project>

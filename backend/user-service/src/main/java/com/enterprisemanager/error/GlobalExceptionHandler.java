@@ -51,10 +51,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ErrorResponse> handleAuthFailed(BadCredentialsException ex) {
-        log.warn("401 – Credenciales inválidas: {}", ex.getMessage());
+        log.warn("401 – Credenciales invalidas: {}", ex.getMessage());
         var body = new ErrorResponse(
                 "401_BAD_CREDENTIALS",
-                "Credenciales inválidas",
+                "Credenciales invalidas",
                 ex.getMessage(),
                 LocalDateTime.now()
         );
@@ -63,10 +63,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse> handleIllegalArg(IllegalArgumentException ex) {
-        log.warn("400 – Argumento inválido: {}", ex.getMessage());
+        log.warn("400 – Argumento invalido: {}", ex.getMessage());
         var body = new ErrorResponse(
                 "400_BAD_REQUEST",
-                "Argumento inválido",
+                "Argumento invalido",
                 ex.getMessage(),
                 LocalDateTime.now()
         );
@@ -78,10 +78,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             HttpHeaders headers,
             HttpStatus status,
             WebRequest request) {
-        log.warn("405 – Método HTTP no permitido: {}", ex.getMethod());
+        log.warn("405 – Metodo HTTP no permitido: {}", ex.getMethod());
         var body = new ErrorResponse(
                 "405_METHOD_NOT_ALLOWED",
-                "Método no permitido",
+                "Metodo no permitido",
                 ex.getMessage(),
                 LocalDateTime.now()
         );
@@ -95,10 +95,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             HttpHeaders headers,
             HttpStatus status,
             WebRequest request) {
-        log.warn("400 – Cuerpo de solicitud inválido o ausente: {}", ex.getMessage());
+        log.warn("400 – Cuerpo de solicitud invalido o ausente: {}", ex.getMessage());
         var body = new ErrorResponse(
                 "400_BAD_REQUEST",
-                "Cuerpo de solicitud inválido o ausente",
+                "Cuerpo de solicitud invalido o ausente",
                 ex.getMessage(),
                 LocalDateTime.now()
         );
@@ -112,7 +112,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             HttpHeaders headers,
             HttpStatus status,
             WebRequest request) {
-        log.warn("400 – Falló validación de argumentos: {} errores", ex.getFieldErrors().size());
+        log.warn("400 – Fallo validacion de argumentos: {} errores", ex.getFieldErrors().size());
         List<ValidationError> errors = ex.getFieldErrors()
                 .stream()
                 .map(err -> new ValidationError(err.getField(), err.getDefaultMessage()))
@@ -120,7 +120,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         var body = new ValidationErrorResponse(
                 "400_VALIDATION_ERROR",
-                "Errores de validación",
+                "Errores de validacion",
                 errors,
                 LocalDateTime.now()
         );
@@ -141,7 +141,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
     }
 
-    // DTOs internos para validación
+    // DTOs internos para validacion
     public record ValidationError(String field, String error) {}
     public record ValidationErrorResponse(
             String code,

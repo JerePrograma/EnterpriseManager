@@ -28,7 +28,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public ResponseEntity<RegisterResponseDTO> register(@RequestBody RegisterRequest datos) {
         if (datos == null) {
-            throw new BadRequestBodyException("El cuerpo de la solicitud no puede estar vacío");
+            throw new BadRequestBodyException("El cuerpo de la solicitud no puede estar vacio");
         }
         var authResponse = userService.register(datos);
         return ResponseEntity

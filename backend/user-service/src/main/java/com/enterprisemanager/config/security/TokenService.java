@@ -27,7 +27,7 @@ public class TokenService {
 
     @PostConstruct
     public void init() {
-        // 1. Decodificamos la Base64 para obtener los bytes reales (de 32 bytes mínimo)
+        // 1. Decodificamos la Base64 para obtener los bytes reales (de 32 bytes minimo)
         byte[] secretBytes = Base64.getDecoder().decode(jwtSecretBase64);
         System.out.println(secretBytes.length); // debe imprimir 32
 
@@ -52,7 +52,7 @@ public class TokenService {
 
     public String getSubject(String token) {
         if (token == null || token.isEmpty()) {
-            throw new RuntimeException("El token es nulo o vacío");
+            throw new RuntimeException("El token es nulo o vacio");
         }
         try {
             DecodedJWT jwt = JWT.require(hmac256)
@@ -61,7 +61,7 @@ public class TokenService {
                     .verify(token);
             return jwt.getSubject();
         } catch (JWTVerificationException e) {
-            throw new RuntimeException("Token inválido o expirado", e);
+            throw new RuntimeException("Token invalido o expirado", e);
         }
     }
 
