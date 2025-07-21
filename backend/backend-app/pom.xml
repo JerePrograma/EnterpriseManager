@@ -6,17 +6,17 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Hereda del parent aggregator -->
     <parent>
         <groupId>com.enterprisemanager</groupId>
         <artifactId>backend</artifactId>
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>user-service</artifactId>
+    <artifactId>backend-app</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- Starters Spring Boot (versiones del BOM importado) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -29,6 +29,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+        <!-- JWT y MySQL (versiones heredadas del BOM/dependencyManagement) -->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
@@ -37,10 +39,25 @@
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
         </dependency>
+
+        <!-- Tus módulos internos (versiones heredadas de dependencyManagement) -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>user-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.enterprisemanager</groupId>
+            <artifactId>product-service</artifactId>
+        </dependency>
+        <!-- …category-, customer-, order-, inventory-, warehouse-service -->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

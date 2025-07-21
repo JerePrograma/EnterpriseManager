@@ -13,7 +13,7 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>user-service</artifactId>
+    <artifactId>warehouse-service</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
