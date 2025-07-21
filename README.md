@@ -1,28 +1,28 @@
-````markdown
 # Enterprise Manager
 
 Enterprise Manager es una plataforma monolítica modular para gestionar usuarios, roles, productos, categorías, clientes, órdenes e inventario. Incluye:
 
-- API RESTful con autenticación JWT  
-- Backend en Spring Boot (Java 17+)  
-- Frontend en React con TypeScript  
-- Persistencia JPA (Postgres/MySQL)  
-- Despliegue vía Docker Compose o JAR standalone
+* API RESTful con autenticación JWT
+* Backend en Spring Boot (Java 21+)
+* Frontend en React con TypeScript
+* Persistencia JPA (PostgreSQL/MySQL)
+* Despliegue vía Docker Compose o JAR standalone
 
 ---
 
 ## 📑 Índice
 
-- [Arquitectura](ARQUITECTURA.MD)  
-- [Planificación](PLANIFICACION.MD)  
-- [Modelo de datos](ENTIDADES.MD)  
-- [Especificación de la API](API_SPEC.MD)  
-- [Vistas Frontend](FRONTEND.MD)  
-- [Despliegue](DEPLOYMENT.MD)  
-- [Instalación](#instalación)  
-- [Uso](#uso)  
-- [Contribuciones](#contribuciones)  
-- [Licencia](#licencia)  
+* [Arquitectura](ARQUITECTURA.MD)
+* [Planificación](PLANIFICACION.MD)
+* [Modelo de datos](ENTIDADES.MD)
+* [Especificación de la API](API_SPEC.MD)
+* [Vistas Frontend](FRONTEND.MD)
+* [Despliegue](DEPLOYMENT.MD)
+* [Instalación](#instalaci%C3%B3n)
+* [Uso](#uso)
+* [Contribuciones](#contribuciones)
+* [Licencia](#licencia)
+* [Contacto](#contacto)
 
 ---
 
@@ -30,10 +30,10 @@ Enterprise Manager es una plataforma monolítica modular para gestionar usuarios
 
 Consulta [ARQUITECTURA.MD](ARQUITECTURA.MD) para:
 
-- Visión general  
-- Parent POM y módulos  
-- Estructura de carpetas  
-- Dependencias clave  
+* Visión general
+* Parent POM y módulos
+* Estructura de carpetas
+* Dependencias clave
 
 ---
 
@@ -41,10 +41,10 @@ Consulta [ARQUITECTURA.MD](ARQUITECTURA.MD) para:
 
 En [PLANIFICACION.MD](PLANIFICACION.MD) encontrarás:
 
-- Alcance del MVP  
-- Módulos y entidades prioritarias  
-- Cronograma de 3 días  
-- Endpoints y flujos de trabajo  
+* Alcance del MVP
+* Módulos y entidades prioritarias
+* Cronograma de 3 días
+* Endpoints y flujos de trabajo
 
 ---
 
@@ -56,7 +56,7 @@ Revisa [ENTIDADES.MD](ENTIDADES.MD) para la descripción completa de cada entida
 
 ## 🔌 Especificación de la API
 
-Todos los endpoints y contratos JSON normalizados están en [API_SPEC.MD](API_SPEC.MD).
+Todos los endpoints y contratos JSON normalizados están en [API\_SPEC.MD](API_SPEC.MD).
 
 ---
 
@@ -76,21 +76,21 @@ Guías paso a paso para desarrollo local, Docker y producción en [DEPLOYMENT.MD
 
 ### Prerrequisitos
 
-- Java 21+  
-- Maven 3.6+  
-- Node.js 18+ y npm  
-- (Opcional) Docker y Docker Compose  
+* Java 21+
+* Maven 3.6+
+* Node.js 18+ y npm
+* (Opcional) Docker y Docker Compose
 
 ### Clonar y levantar backend
 
 ```bash
-git clone git@github.com:tu-org/enterprise-manager.git
+git clone https://github.com/JerePrograma/EnterpriseManager.git
 cd enterprise-manager
 mvn clean install
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
-````
+```
 
-### Levantar frontend
+### Clonar y levantar frontend
 
 ```bash
 cd frontend
@@ -100,7 +100,7 @@ npm run dev
 
 ---
 
-## 🔧 Uso
+## 🚀 Uso
 
 * Backend: `http://localhost:8080`
 * Frontend: `http://localhost:3000`
@@ -124,7 +124,4 @@ Este proyecto está bajo licencia MIT. Véase [LICENSE](LICENSE).
 
 ## 📬 Contacto
 
-Para dudas o sugerencias, escríbenos a `equipo@tu-organizacion.com`.
-
-```
-```
+Para dudas o sugerencias, escríbenos a `jeremias.j.riv@gmail.com`.
