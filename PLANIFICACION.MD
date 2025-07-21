@@ -1,4 +1,3 @@
-```markdown
 ## 1. Alcance del MVP
 
 - **Objetivo**: Funcionalidad mínima útil que permita gestionar clientes, productos e “órdenes de venta” con stock básico.  
@@ -101,5 +100,4 @@
 ┌───────────────────┐
 │     Entity        │
 └───────────────────┘
-```
 ```
